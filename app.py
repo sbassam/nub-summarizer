@@ -7,6 +7,7 @@ import io
 
 # import torch
 # from spacy.util import load_model
+import transformers
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 
