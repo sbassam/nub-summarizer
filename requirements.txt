@@ -1,2 +1,3 @@
-streamlit
-transformers
+# Editable install with no version control (transformers==3.0.2)
+-e /Users/soroush/.pyenv/versions/3.7.3/lib/python3.7/site-packages
+streamlit==0.62.1
