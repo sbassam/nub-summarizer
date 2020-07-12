@@ -1,7 +1,6 @@
 import streamlit as st
 import time
-from transformers import AutoTokenizer, pipeline
-from transformers.modeling_auto import AutoModelWithLMHead
+from transformers import AutoTokenizer, AutoModelWithLMHead, pipeline
 
 
 def main():
