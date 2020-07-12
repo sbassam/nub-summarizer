@@ -70,8 +70,8 @@ testpath==0.4.4
 tokenizers==0.8.1rc1
 toml==0.10.1
 toolz==0.10.0
-torch==1.2.0 # use this for heroku to avoid slug size issue
-torchvision==0.4.0 # use this for heroku to avoid slug size issue
+torch==1.1.0 # use this for heroku to avoid slug size issue
+torchvision==0.3.0 # use this for heroku to avoid slug size issue
 # torch==1.5.1
 # torchvision==0.6.1
 tornado==6.0.4
