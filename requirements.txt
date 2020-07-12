@@ -46,7 +46,6 @@ parso==0.7.0
 pathtools==0.1.2
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow @ file:///opt/concourse/worker/volumes/live/05b3bc99-cf9f-44f2-42cf-267ed3a55922/volume/pillow_1594307311725/work
 prometheus-client==0.8.0
 prompt-toolkit==3.0.5
 protobuf==3.12.2
