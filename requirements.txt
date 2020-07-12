@@ -1,2 +1,2 @@
-git+https://github.com/huggingface/transformers.git
+transformers==3.0.2
 streamlit==0.62.1
