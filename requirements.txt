@@ -70,10 +70,18 @@ testpath==0.4.4
 tokenizers==0.8.1rc1
 toml==0.10.1
 toolz==0.10.0
-torch==1.1.0 # use this for heroku to avoid slug size issue
-torchvision==0.3.0 # use this for heroku to avoid slug size issue
-# torch==1.5.1
-# torchvision==0.6.1
+certifi==2020.6.20
+cffi==1.14.0
+mkl-fft==1.1.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+numpy==1.18.5
+olefile==0.46
+Pillow @ file:///opt/concourse/worker/volumes/live/05b3bc99-cf9f-44f2-42cf-267ed3a55922/volume/pillow_1594307311725/work
+pycparser==2.20
+six==1.15.0
+torch==1.2.0
+torchvision==0.4.0a0+6b959ee
 tornado==6.0.4
 tqdm==4.47.0
 traitlets==4.3.3

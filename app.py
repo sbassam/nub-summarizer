@@ -2,7 +2,9 @@ import streamlit as st
 import time
 from transformers import AutoTokenizer, pipeline
 from transformers.modeling_auto import AutoModelWithLMHead
-
+# use this for heroku to avoid slug size issue
+## torch==1.5.1
+# torchvision==0.6.1
 
 def main():
     st.title('Nub 1.0 Summarizer')
