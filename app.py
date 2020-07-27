@@ -1,6 +1,6 @@
 import streamlit as st
 import time
-from transformers import AutoTokenizer, pipeline
+from transformers import AutoTokenizer, pipeline, T5ForConditionalGeneration, T5Tokenizer
 from transformers.modeling_auto import AutoModelWithLMHead
 # use this for heroku to avoid slug size issue
 ## torch==1.5.1
@@ -11,7 +11,10 @@ def main():
     input_text = st.text_area("Enter text")
     'or...'
     uploaded_file = st.file_uploader("Choose a text file", type="txt")
-    tokenizer, model = load_model()
+    with st.spinner('Downloading the model...'):
+        tokenizer, model = load_model()
+    st.success('Done!')
+
     if st.button('Summarize'):
         if uploaded_file and not input_text:
             text_from_file = process_file(uploaded_file)
@@ -43,14 +46,10 @@ def process_file(uploaded_file):
 
 # @st.cache()
 def load_model():
-    # output_dir = '/Users/soroush/Documents/nub-summarizer/model'
-    # model = T5ForConditionalGeneration.from_pretrained('soroush/model')
-    # tokenizer = T5Tokenizer.from_pretrained('soroush/model')
-    # https://huggingface.co/mrm8488/t5-base-finetuned-summarize-news
-
-    tokenizer = AutoTokenizer.from_pretrained("mrm8488/t5-base-finetuned-summarize-news")
-
-    model = AutoModelWithLMHead.from_pretrained("mrm8488/t5-base-finetuned-summarize-news")
+    # model = T5ForConditionalGeneration.from_pretrained('soroush/t5-finetuned-lesson-summarizer')
+    # tokenizer = T5Tokenizer.from_pretrained('soroush/t5-finetuned-lesson-summarizer')
+    model = T5ForConditionalGeneration.from_pretrained('./model/')
+    tokenizer = T5Tokenizer.from_pretrained('./model/')
     return tokenizer, model
 
 
@@ -69,11 +68,13 @@ def run_summarizer(input_text, tokenizer, model):
     #     repetition_penalty=2.5,
     #     early_stopping=True)
     # output_text = tokenizer.decode(outputs[0])
-
+    max_len = len(input_text)
     # try pipeline to avoid the truncation error
     summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
     output = summarizer(input_text)
     output_text = output[0]['summary_text']
+    if len(output_text) > max_len:
+        output_text = output_text[:max_len]
 
     for i in range(100):
         # Update the progress bar with each iteration.

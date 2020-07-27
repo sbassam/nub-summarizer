@@ -1,0 +1,7 @@
+numpy==1.19.0
+six==1.15.0
+streamlit==0.62.1
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.2.0+cpu
+transformers==3.0.2
+
