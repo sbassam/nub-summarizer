@@ -23,11 +23,11 @@ This will print the local URL or open the web app in a broswer.
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-spIChqxJ4BAI2i70xAlMtEzxnJdcVPE?usp=sharing)
 
 #### 3. Play around with the model under the hood
- - [Load](https://pypi.org/project/rouge-score/) from `/nub-training-evaluation/model`
- - (preferred) load from huggingface [model hub](https://huggingface.co/soroush/t5-finetuned-lesson-summarizer):
+Install Transformers:
  ```python
 pip install transformers
 ```
+Load from huggingface [model hub](https://huggingface.co/soroush/t5-finetuned-lesson-summarizer):
  ```.python
 from transformers import pipeline, T5ForConditionalGeneration, T5Tokenizer
 model = T5ForConditionalGeneration.from_pretrained('soroush/t5-finetuned-lesson-summarizer')
@@ -79,6 +79,7 @@ To fine-tune the model on a downstream task follow steps in `nub-training-evalua
 
 Step by step process documented here: `nub-training-evaluation/Run Evaluations on Fine-tuned T-5 Summarizer.ipynb`
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbassam/nub-summarizer/blob/master/Run_Evaluations_on_Fine_tuned_T_5_Summarizer.ipynb)
+
 Comparative Analyses documented in `nub-training-evaluation/Results Analysis and Comparison.ipynb` [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbassam/nub-summarizer/blob/master/Results_Analysis_and_Comparison.ipynb)
  
 - Analysis result can be found in the corresponding csv files under `/nub-training-evaluation/result`
