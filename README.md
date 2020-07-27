@@ -1,40 +1,26 @@
----
-language: `multilingual`
-thumbnail: (https://huggingface.co/soroush/t5-finetuned-lesson-summarizer)
-tags:
-- [T5](https://github.com/huggingface/transformers)
-- [LongFormer](https://github.com/huggingface/transformers)
-- tags
-license: "any valid license identifier"
-datasets:
-* [CNN/Daily Mail](https://s3.amazonaws.com/datasets.huggingface.co/summarization/cnn_dm.tgz) 
-* [ML4T](https://www.udacity.com/course/machine-learning-for-trading--ud501)
-- metrics:
-- [ROUGE-1, ROUGE-2, ROUGE-L](https://pypi.org/project/rouge-score/)
----
-
 # Nub 1.0 Lesson Summarizer
 
 ## Model description
-T5 finetuned on lecture dataset + CNN/Daily Mail.
-https://huggingface.co/soroush/t5-finetuned-lesson-summarizer
+A [T5 Model](https://huggingface.co/soroush/t5-finetuned-lesson-summarizer) finetuned on lecture dataset + CNN/Daily Mail. 
+
+>Students often struggle with processing large volumes of content throughout the course of their studies. This in turn will lead to a decrease in student productivity. Utilizing an effective summarization tool, students can better prepare for exams, improve their own summarization skills via learning by comparison, and avoid wasting time on low-quality content by skimming the summary. Nub 1.0 is a text summarizer that leverages deep learning to specialize in educational content. When evaluated on the CNN/Daily Mail dataset, It shows superior performance compared to similar tools. 
+
 
 ## Intended uses & limitations
->Students often struggle with processing large volumes of content throughout the course of their studies. This in turn will lead to a decrease in student productivity. Utilizing an effective summarization tool, students can better prepare for exams, improve their own summarization skills via learning by comparison, and avoid wasting time on low-quality content by skimming the summary. Nub 1.0 is a text summarizer that leverages deep learning to specialize in educational content. When evaluated on the CNN/Daily Mail dataset, It shows superior performance compared to similar tools. 
 ### How to use Nub 1.0 
 #### 1. Run the Web app locally (preferred method)
-You'll need Python 3.7+, and pip. Simply install the requirements:
+You'll need Python 3.7+, and pip. Simply clone the repo, and install the requirements:
 ```python
 pip install -r  requirements.txt
 ```
-then start the web app from command line:
+Then start the web app from the command line:
 ```python
 streamlit run app.py
 ```
-This will open the web app in a broswer. Otherwise, follow the local URL.
+This will print the local URL or open the web app in a broswer.
 
 #### 2. Run the web app on Colab
-[Colab Notebook](https://colab.research.google.com/drive/1-spIChqxJ4BAI2i70xAlMtEzxnJdcVPE?usp=sharing) 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1-spIChqxJ4BAI2i70xAlMtEzxnJdcVPE?usp=sharing)
 
 #### 3. Play around with the model under the hood
  - [Load](https://pypi.org/project/rouge-score/) from `/nub-training-evaluation/model`
@@ -87,14 +73,14 @@ python run_qa.py \
  
 
 ## Training procedure
-To fine-tune the model on a downstream task follow steps in `nub-training-evaluation/fine-tuning T-5 on CNN+daily mail + ML4T.ipynb`.
-
+To fine-tune the model on a downstream task follow steps in `nub-training-evaluation/fine-tuning T-5 on CNN+daily mail + ML4T.ipynb`. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbassam/nub-summarizer/blob/master/fine_tuning_T_5_on_CNN%2Bdaily_mail_%2B_ML4T.ipynb)
 
 ## Eval results
 
 Step by step process documented here: `nub-training-evaluation/Run Evaluations on Fine-tuned T-5 Summarizer.ipynb`
-
-Comparative Analyses documented in `nub-training-evaluation/Results Analysis and Comparison.ipynb` 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbassam/nub-summarizer/blob/master/Run_Evaluations_on_Fine_tuned_T_5_Summarizer.ipynb)
+Comparative Analyses documented in `nub-training-evaluation/Results Analysis and Comparison.ipynb` [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbassam/nub-summarizer/blob/master/Results_Analysis_and_Comparison.ipynb)
+ 
 - Analysis result can be found in the corresponding csv files under `/nub-training-evaluation/result`
 ### BibTeX entry and citation info
 
@@ -105,5 +91,21 @@ Comparative Analyses documented in `nub-training-evaluation/Results Analysis and
 ```
 
 * readme guide from https://github.com/huggingface/model_card/edit/master/README.md
+
+---
+Tags
+- [T5](https://github.com/huggingface/transformers)
+- [LongFormer](https://github.com/huggingface/transformers)
+
+License 
+- [Apache License 2.0](https://github.com/sbassam/nub-summarizer/blob/master/LICENSE)
+
+Datasets
+- [CNN/Daily Mail](https://s3.amazonaws.com/datasets.huggingface.co/summarization/cnn_dm.tgz) 
+- [ML4T](https://www.udacity.com/course/machine-learning-for-trading--ud501)
+
+Metrics
+- [ROUGE-1, ROUGE-2, ROUGE-L](https://pypi.org/project/rouge-score/)
+---
 
 ## 
