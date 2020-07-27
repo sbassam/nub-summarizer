@@ -46,10 +46,10 @@ def process_file(uploaded_file):
 
 # @st.cache()
 def load_model():
-    # model = T5ForConditionalGeneration.from_pretrained('soroush/t5-finetuned-lesson-summarizer')
-    # tokenizer = T5Tokenizer.from_pretrained('soroush/t5-finetuned-lesson-summarizer')
-    model = T5ForConditionalGeneration.from_pretrained('./model/')
-    tokenizer = T5Tokenizer.from_pretrained('./model/')
+    model = T5ForConditionalGeneration.from_pretrained('soroush/t5-finetuned-lesson-summarizer')
+    tokenizer = T5Tokenizer.from_pretrained('soroush/t5-finetuned-lesson-summarizer')
+    # model = T5ForConditionalGeneration.from_pretrained('./model/')
+    # tokenizer = T5Tokenizer.from_pretrained('./model/')
     return tokenizer, model
 
 
