@@ -23,9 +23,9 @@ The main goal for this summarizer is to be used for learning content summarizati
 #### How to use Nub 1.0 Web app
 You'll need Python 3.7+, and pip. Simply install the requirements:
 ```python
-pip install -r requirements.txt
+pip install -r  requirements.txt
 ```
-then from command line:
+then start the web app from command line:
 ```python
 streamlit run app.py
 ```
