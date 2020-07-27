@@ -1,15 +1,16 @@
 ---
 language: `multilingual`
-thumbnail: https://huggingface.co/soroush/t5-finetuned-lesson-summarizer
+thumbnail: (https://huggingface.co/soroush/t5-finetuned-lesson-summarizer)
 tags:
-- T5
-- LongFormer
+- [T5](https://github.com/huggingface/transformers)
+- [LongFormer](https://github.com/huggingface/transformers)
 - tags
 license: "any valid license identifier"
 datasets:
-- [CNN/Daily Mail] [ML4T]
-metrics:
-- [ROUGE-1, ROUGE-2, ROUGE-L]
+* [CNN/Daily Mail](https://s3.amazonaws.com/datasets.huggingface.co/summarization/cnn_dm.tgz) 
+* [ML4T](https://www.udacity.com/course/machine-learning-for-trading--ud501)
+- metrics:
+- [ROUGE-1, ROUGE-2, ROUGE-L](https://pypi.org/project/rouge-score/)
 ---
 
 # Nub 1.0 Lesson Summarizer
@@ -19,8 +20,9 @@ T5 finetuned on lecture dataset + CNN/Daily Mail.
 https://huggingface.co/soroush/t5-finetuned-lesson-summarizer
 
 ## Intended uses & limitations
-The main goal for this summarizer is to be used for learning content summarization
-#### How to use Nub 1.0 Web app
+>Students often struggle with processing large volumes of content throughout the course of their studies. This in turn will lead to a decrease in student productivity. Utilizing an effective summarization tool, students can better prepare for exams, improve their own summarization skills via learning by comparison, and avoid wasting time on low-quality content by skimming the summary. Nub 1.0 is a text summarizer that leverages deep learning to specialize in educational content. When evaluated on the CNN/Daily Mail dataset, It shows superior performance compared to similar tools. 
+### How to use Nub 1.0 
+#### 1. Run the Web app locally (preferred method)
 You'll need Python 3.7+, and pip. Simply install the requirements:
 ```python
 pip install -r  requirements.txt
@@ -29,11 +31,14 @@ then start the web app from command line:
 ```python
 streamlit run app.py
 ```
-This will open the web app in the broswer.
+This will open the web app in a broswer. Otherwise, follow the local URL.
 
-#### How to use the underlying finetuned T5 model
- - load from `/nub-training-evaluation/model`
- - load from huggingface model hub:
+#### 2. Run the web app on Colab
+[Colab Notebook](https://colab.research.google.com/drive/1-spIChqxJ4BAI2i70xAlMtEzxnJdcVPE?usp=sharing) 
+
+#### 3. Play around with the model under the hood
+ - [Load](https://pypi.org/project/rouge-score/) from `/nub-training-evaluation/model`
+ - (preferred) load from huggingface [model hub](https://huggingface.co/soroush/t5-finetuned-lesson-summarizer):
  ```python
 pip install transformers
 ```
@@ -59,30 +64,38 @@ If installing the pytorch version is too heavy for the hardware in use, try down
 a cpu-only version `pip install requirements_cpu.txt`
 ## Training data
 
-CNN/Daily Mail news dataset
 To process the lectures from ML4T:
  ```
 python process_srt_files.py \
     --output_dir './data/processed_lessons/' \
     --lessons_dir 'data/raw_lessons'
 ``` 
-To run the Question Answering module to autogenerate unsupervised summaries.
+Each lesson is a collection of videos in a directory that lives in `raw_lessons`.
+This script will take video transcripts in `.srt` format and putputs a single-line text document per lesson.
+
+To run the Question Answering module to autogenerate unsupervised summaries for finetuning, run:
 ```
 python run_qa.py \
     --output_dir './data/qa_generated_summaries/' 
     --lessons_dir './data/processed_lessons' 
     --questions_dir './data/lesson_questions'
 ```
-Use `/nub-training-evaluation/fine-tuning T-5 on CNN+daily mail + ML4T.ipynb` instead of `finetune_t5.py` to speed up he process.
+- `lesson_questions`: directory containing question files (names match the lesson files)
+- `processed_lessons`: the output of `process_srt_files.py`.  
+- `qa_generated_summaries`: the directory containing the QA generated summaries
+- `raw_lessons`: each directory inside here has one or more `.srt` files
+ 
+
 ## Training procedure
-Training is under `/nub-training-evaluation`. Everything is documented in the corresponding Colab notebook.
-Step by step process documented here `fine-tuning T-5 on CNN+daily mail + ML4T.ipynb`
+To fine-tune the model on a downstream task follow steps in `nub-training-evaluation/fine-tuning T-5 on CNN+daily mail + ML4T.ipynb`.
+
 
 ## Eval results
-raining is under `/nub-training-evaluation`.
-Step by step process documented here `Run Evaluations on Fine-tuned T-5 Summarizer.ipynb`
-Comparative Analyses documented in `Results Analysis and Comparison.ipynb` 
-Analysis result can be found in the corresponding csv files under `/nub-training-evaluation/result`
+
+Step by step process documented here: `nub-training-evaluation/Run Evaluations on Fine-tuned T-5 Summarizer.ipynb`
+
+Comparative Analyses documented in `nub-training-evaluation/Results Analysis and Comparison.ipynb` 
+- Analysis result can be found in the corresponding csv files under `/nub-training-evaluation/result`
 ### BibTeX entry and citation info
 
 ```bibtex
