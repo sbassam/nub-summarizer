@@ -32,7 +32,7 @@ GitPython==3.1.7
 google-api-python-client==1.5.3
 gql==0.2.0
 graphql-core==1.1
-httplib2==0.18.0
+httplib2==0.19.0
 idna==2.10
 importlib-metadata==1.7.0
 ipykernel==5.3.2
