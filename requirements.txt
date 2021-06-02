@@ -128,7 +128,7 @@ traitlets==4.3.3
 transformers==3.0.2
 tzlocal==2.1
 uritemplate==0.6
-urllib3==1.25.9
+urllib3==1.26.5
 validators==0.15.0
 wandb==0.9.3
 wasabi==0.7.0
